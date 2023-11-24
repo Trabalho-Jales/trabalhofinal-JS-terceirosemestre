@@ -1,0 +1,39 @@
+*{
+    font-family: 'Lato', sans-serif;
+  }
+  body{
+      background-color: #f79c5211;
+  }
+@media (max-width: 576px) {
+    .product {
+        margin-bottom: 20px;
+    }
+}
+/* Estilo para a página de produtos */
+#listaProdutos {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.product {
+    width: 20%; 
+    margin: 2% 2%; 
+    margin-bottom: 20px;
+}
+
+.navbar-brand    img{
+    width: 80px;
+    height: 80px;
+    margin: 0 auto;
+  }
+#carrinhoIcon, #favIcon{
+    width: 30px;
+    height: 30px;
+    align-items: center;
+    justify-content: center;
+    margin-top: 12px;    
+}
+.cart-container, .favorites-container{
+    width: 60px;
+}

@@ -1,103 +1,50 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-    <link rel="stylesheet" href="styles.css">
-    <title>Loja Foda</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Vina+Sans&display=swap" rel="stylesheet">
+  <title>Login - Ponto de Moda</title>
+  <link rel="stylesheet" href="./css/login.css">
 </head>
-
 <body>
-
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">Loja Foda</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Produtos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Promoções</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contato</a>
-                    </li>
-                </ul>
-            </div>
-            <!-- Carrinho -->
-            <div class="cart-container">
-                <h4><a href="./paginas/carrinho.html"><img src="./img/cart-fill.svg" alt="Carrinho de compra"></a></h4>
-                <ul id="cart"></ul>
-            </div>
-
-            <!-- Favoritos -->
-            <div class="favorites-container">
-                <h4><a href="./paginas/favorito.html"><img src="./img/box2-heart-fill.svg" alt="Favorito"></a></h4>
-                <ul id="fav"></ul>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Cabeçalho -->
-    <header class="jumbotron">
-        <h1 class="display-4">Bem-vindo à Loja Foda</h1>
-        <p class="lead">Encontre os melhores produtos com os melhores preços.</p>
-    </header>
-
-    <!-- Carrossel de Promoções -->
-    <div id="carouselExample" class="carousel slide" data-ride="carousel">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="promo1.jpg" class="d-block w-100" alt="Promoção 1">
-            </div>
-            <div class="carousel-item">
-                <img src="promo2.jpg" class="d-block w-100" alt="Promoção 2">
-            </div>
-            <div class="carousel-item">
-                <img src="promo3.jpg" class="d-block w-100" alt="Promoção 3">
-            </div>
-        </div>
-        <a class="carousel-control-prev" href="#carouselExample" role="button" data-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="sr-only">Anterior</span>
-        </a>
-        <a class="carousel-control-next" href="#carouselExample" role="button" data-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="sr-only">Próximo</span>
-        </a>
+  <header class="d-flex justify-content-center align-items-center">
+    <div class="logo">
+      <img src="./img/logo.png" alt="">
     </div>
-
-    <div class="container">
-        <div class="row" id="product-list">
-            <!-- Produtos serão adicionados de modo dinâmico -->
-        </div>
+  </header>
+  <div class="login-container">
+    <form id="loginForm">
+      <h2>Login</h2>
+      <div class="mb-3">
+        <label for="username" class="form-label">Usuário:</label>
+        <input type="text" class="form-control" id="username" placeholder="Digite seu nome de usuário" required>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">Senha:</label>
+        <input type="password" class="form-control" id="password" placeholder="Digite sua senha" required>
+      </div>
+      <div class="text-center">   
+        <button type="submit" class="btn btn-primary">Entrar</button>
+      </div>
+    </form>
+  </div>
+  <footer>
+    <div class="footer-container">
+    <p>Nossas redes sociais: </p>
+     <a href="#" target="_blank"> <img class="insta" src="./img/icon/instagram.svg" alt="Intagram"></a>
+     <a href="#" target="_blank"> <img class="face" src="./img/icon/facebook.svg" alt="Facebook"></a>
     </div>
+  </footer>
+  <!-- Bootstrap Alert -->
+  <div id="redirectAlert" class="alert alert-primary d-none" role="alert">
+    <strong>Redirecionando...</strong> Por favor, aguarde...
+  </div>
 
-
-
-    <!-- Rodapé -->
-    <footer class="footer mt-auto py-3 bg-light">
-        <div class="container">
-            <span class="text-muted">© 2023 Loja Foda</span>
-        </div>
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-        crossorigin="anonymous"></script>
-        <script src="./js/script.js"></script>
-        <script src="./js/carregaprod.js"></script>
-        <script src="./js/carrinho.js"></script>
-        
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="./js/login.js"></script>
 </body>
-
 </html>

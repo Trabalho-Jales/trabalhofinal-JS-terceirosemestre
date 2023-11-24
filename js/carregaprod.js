@@ -1,116 +1,116 @@
 // Dados dos produtos
-const products = [
-    { id: 1, name: 'Produto 1', price: 19.99, image: 'product1.jpg' },
+const produtos = [
+    { id: 1, nome: 'Produto 1', preco: 19.99, imagem: '../img/produtos/c1.jpg' },
     // Adicione mais produtos conforme necessário
 ];
 
 // Função para obter os produtos do Local Storage
-function getProductsFromLocalStorage() {
-    const storedProducts = localStorage.getItem('products');
-    return storedProducts ? JSON.parse(storedProducts) : [];
+function adicionarLocalStorage() {
+    const noCarrinho = localStorage.getItem('produtos');
+    return noCarrinho ? JSON.parse(noCarrinho) : [];
 }
 
 // Função para salvar os produtos no Local Storage
-function saveProductsToLocalStorage(products) {
-    localStorage.setItem('products', JSON.stringify(products));
+function salvarLocalStorage(produtos) {
+    localStorage.setItem('produtos', JSON.stringify(produtos));
 }
 
 // Função para renderizar os produtos na página
-function renderProducts() {
-    const productList = document.getElementById('product-list');
+function carregarProdutos() {
+    const listaProdutos = document.getElementById('product-list');
 
     // Obter produtos do Local Storage
-    const storedProducts = getProductsFromLocalStorage();
+    const noCarrinho = adicionarLocalStorage();
 
-    // Se houver produtos no Local Storage, use-os; caso contrário, use os produtos padrão
-    const currentProducts = storedProducts.length > 0 ? storedProducts : products;
+    // Se houver produtos no Local Storage
+    const produtoAdicionado = noCarrinho.length > 0 ? noCarrinho : produtos;
 
-    currentProducts.forEach(product => {
-        const productItem = document.createElement('div');
-        productItem.classList.add('col-md-4', 'product');
+    produtoAdicionado.forEach(produto => {
+        const cardProd = document.createElement('div');
+        cardProd.classList.add('col-md-4', 'produto');
 
         // Estrutura do produto
-        productItem.innerHTML = `
+        cardProd.innerHTML = `
             <div class="card">
-                <img src="${product.image}" class="card-img-top" alt="${product.name}">
+                <img src="${produto.imagem}" class="card-img-top" alt="${produto.nome}">
                 <div class="card-body">
-                    <h5 class="card-title">${product.name}</h5>
-                    <p class="card-text">Preço: $${product.price.toFixed(2)}</p>
-                    <button class="btn btn-primary" onclick="buyProduct(${product.id}, '${product.name}', ${product.price})">Comprar</button>
-                    <button class="btn btn-danger" onclick="addToFavorites(${product.id}, '${product.name}')">Favorito</button>
+                    <h5 class="card-title">${produto.nome}</h5>
+                    <p class="card-text">Preço: $${produto.preco.toFixed(2)}</p>
+                    <button class="btn btn-primary" onclick="buyProduct(${produto.id}, '${produto.nome}', ${produto.preco})">Comprar</button>
+                    <button class="btn btn-danger" onclick="addToFavorites(${produto.id}, '${produto.nome}')">Favorito</button>
                 </div>
             </div>
         `;
 
-        productList.appendChild(productItem);
+        listaProdutos.appendChild(cardProd);
     });
 }
 
 // Função para lidar com a ação de compra
-window.buyProduct = function (productId, productName, price) {
-    addProductToCart(productId, productName, price);
-    renderCart();
-    alert(`Produto "${productName}" adicionado ao carrinho!`);
+window.addCarrinho = function (produtoId, produtoNome, preco) {
+    addProdutoCarrinho(produtoId, produtoNome, preco);
+    carregaCarrinho();
+    alert(`Produto "${produtoNome}" adicionado ao carrinho!`);
 };
 
 // Função para lidar com a adição aos favoritos
-window.addToFavorites = function (productId, productName) {
-    addProductToFavorites(productId, productName);
-    renderFavorites();
-    alert(`Produto "${productName}" adicionado aos favoritos!`);
+window.addFavoritos = function (produtoId, produtoNome) {
+    addProdutoFavoritos(produtoId, produtoNome);
+    carregaFavoritos();
+    alert(`Produto "${produtoNome}" adicionado aos favoritos!`);
 };
 
-function addProductToCart(productId, productName, price) {
-    const cartItem = { id: productId, name: productName, price: price.toFixed(2) };
-    let cart = getCartFromLocalStorage();
-    cart.push(cartItem);
-    saveCartToLocalStorage(cart);
+function addProdutoCarrinho(produtoId, produtoNome, preco) {
+    const prodCarrinho = { id: produtoId, nome: produtoNome, preco: preco.toFixed(2) };
+    let carrinho = getCarrinhoLocalStorage();
+    carrinho.push(prodCarrinho);
+    salvarCarrinhoLocalStorage(carrinho);
 }
 
-function addProductToFavorites(productId, productName) {
-    const favoritesItem = { id: productId, name: productName };
-    let favorites = getFavoritesFromLocalStorage();
-    favorites.push(favoritesItem);
-    saveFavoritesToLocalStorage(favorites);
+function addProdutoFavoritos(produtoId, produtoName) {
+    const produtosFav = { id: produtoId, nome: produtoName };
+    let fav = getFavoritosLocalStorage();
+    fav.push(produtosFav);
+    salvarFavoritosLocalStorage(fav);
 }
 
-function getCartFromLocalStorage() {
+function getCarrinhoLocalStorage() {
     return JSON.parse(localStorage.getItem('cart')) || [];
 }
 
-function saveCartToLocalStorage(cart) {
+function salvarCarrinhoLocalStorage(cart) {
     localStorage.setItem('cart', JSON.stringify(cart));
 }
 
-function getFavoritesFromLocalStorage() {
+function getFavoritosLocalStorage() {
     return JSON.parse(localStorage.getItem('favorites')) || [];
 }
 
-function saveFavoritesToLocalStorage(favorites) {
+function salvarFavoritosLocalStorage(favorites) {
     localStorage.setItem('favorites', JSON.stringify(favorites));
 }
 
-function renderCart() {
-    const cartList = document.getElementById('cart-list');
+function carregaCarrinho() {
+    const listaCarrinho = document.getElementById('cart-list');
 
-    if (!cartList) {
+    if (!listaCarrinho) {
         console.error('Elemento do carrinho não encontrado.');
         return;
     }
 
     // Limpar a lista antes de renderizar novamente
-    cartList.innerHTML = '';
+    listaCarrinho.innerHTML = '';
 
     // Adicionar cada item do carrinho à lista
-    const cart = getCartFromLocalStorage();
+    const cart = getCarrinhoLocalStorage();
     cart.forEach(item => {
         const cartItem = document.createElement('li');
-        cartItem.textContent = `${item.name} - $${item.price}`;
+        cartItem.textContent = `${item.nome} - $${item.preco}`;
         cartList.appendChild(cartItem);
     });
 }
 
-function renderFavorites() {
+function carregaFavoritos() {
     const favoritesList = document.getElementById('fav-list');
     const favorites = getFavoritesFromLocalStorage();
 
@@ -120,14 +120,14 @@ function renderFavorites() {
     // Adicionar cada item aos favoritos à lista
     favorites.forEach(item => {
         const favoritesItem = document.createElement('li');
-        favoritesItem.textContent = item.name;
+        favoritesItem.textContent = item.nome;
         favoritesList.appendChild(favoritesItem);
     });
 }
 
 // Chama a função para renderizar os produtos na página
-renderProducts();
+carregarProdutos();
 
 // Chama as funções de renderização para carrinho e favoritos
-renderCart();
-renderFavorites();
+carregaCarrinho();
+carregaFavoritos();
