@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', function () {
         carregarProdutos();
     }
 });
-
 function carregarProdutos() {
     const produtos = [
         { id: 1, nome: 'Camiseta Duff Beer Tradicional', preco: 25.50, imagem: '../img/produtos/1.png' },
@@ -31,12 +30,10 @@ function carregarProdutos() {
         { id: 19, nome: 'Camiseta Crazy Mario Tradicional', preco: 25.50, imagem: '../img/produtos/19.png' },
         { id: 20, nome: 'Camiseta Waaazzzuuppp Tradicional', preco: 25.50, imagem: '../img/produtos/20.png' },
     ];
-
     const listaProdutos = document.getElementById('listaProdutos');
     produtos.forEach(function (produto) {
         const itemProduto = document.createElement('div');
         itemProduto.classList.add('col-md-4', 'produto');
-
         // Estrutura do produto
         itemProduto.innerHTML = `
             <div class="card">
@@ -49,7 +46,6 @@ function carregarProdutos() {
                 </div>
             </div>
         `;
-
         listaProdutos.appendChild(itemProduto);
     });
 }
@@ -67,17 +63,13 @@ function comprarProduto(id, nome, preco) {
 }
 function carregaFavoritos() {
     const favContainer = document.getElementById('fav');
-
     // Verificar se o elemento foi encontrado no DOM
     if (favContainer) {
         let favoritos = JSON.parse(localStorage.getItem('fav')) || [];
-
         favContainer.innerHTML = '';
-
         favoritos.forEach(function (item) {
             const favItem = document.createElement('li');
             favItem.innerHTML = `${item.nome}`;
-
             const btnAddCarrinho = document.createElement("button");
             btnAddCarrinho.classList.add('btn-carrinho');
             btnAddCarrinho.innerText = "Comprar";
@@ -85,46 +77,35 @@ function carregaFavoritos() {
                 adicionarProdutoNoCarrinho(item.id, item.nome, item.preco);
                 carregarCarrinho();
             });
-
             const botaoRemover = document.createElement('button');
             botaoRemover.innerHTML = 'Remover dos Favoritos';
             botaoRemover.classList.add('btn', 'btn-danger');
             botaoRemover.onclick = function () {
                 removerFavoritos(item.id);
             };
-
             favItem.appendChild(btnAddCarrinho);
             favItem.appendChild(botaoRemover);
             favContainer.appendChild(favItem);
         });
     }
 }
-
-
-
-function adicionarFavorito(id, nome, preco) {
+function adicionarFavorito(id, nome) {
     let favoritos = JSON.parse(localStorage.getItem('fav')) || [];
     const favoritoExistente = favoritos.find(favorito => favorito.id === id);
 
     if (favoritoExistente) {
         alert(`Produto "${nome}" já está nos favoritos!`);
     } else {
-        favoritos.push({ id, nome, preco, quantidade: 1 });  // Adicionando a propriedade preco
+        favoritos.push({ id, nome, quantidade: 1 });
         localStorage.setItem('fav', JSON.stringify(favoritos));
         alert(`Produto "${nome}" adicionado aos favoritos!`);
         carregaFavoritos();
     }
 }
-
-
-
-
-
 // Função para sair e voltar ao login
 function logout() {
     // Limpar o localStorage
     localStorage.removeItem('nomeUsuario');
-
     // Redirecionar para a página de login
     window.location.href = '../index.html';
 }
