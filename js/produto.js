@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function () {
     if (!nomeUsuario) {
         window.location.href = '../../index.html';
     } else {
-        document.getElementById('welcomeMessage').textContent = `Bem-vindo, ${nomeUsuario} à loja Ponto de Moda!`;
+        document.getElementById('welcomeMessage').textContent = `Bem-vindo(a), ${nomeUsuario} à loja Ponto de Moda!`;
         carregarProdutos();
     }
 });
