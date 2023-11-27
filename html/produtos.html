@@ -1,20 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Vina+Sans&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:ital,wght@1,900&family=Vina+Sans&display=swap" rel="stylesheet">
     <title>Produtos - Ponto de Moda</title>
     <link rel="stylesheet" href="../css/produto.css">
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../img/logo.png" alt=""></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
@@ -37,55 +37,64 @@
             <!-- Carrinho -->
             <div class="cart-container">
                 <h4><a href="../html/carrinho.html"><img src="../img/icon/cart-check.svg" id="carrinhoIcon" alt="Carrinho de compra"></a></h4>
+                <p class="texto-carrinho">Carrinho</p>
                 <ul id="cart"></ul>
             </div>
 
             <!-- Favoritos -->
             <div class="favorites-container">
                 <h4><a href="../html/favoritos.html"><img src="../img/icon/bag-heart-fill.svg" id="favIcon" alt="Favorito"></a></h4>
-                <ul id="fav"></ul>
+                <p>Favoritos</p>
+              
             </div>
-            <button class="btn btn-danger" onclick="logout()">Sair</button>
+            <button class="btn-sair" onclick="logout()">Sair</button>
         </div>
     </nav>
 
     <!-- Cabeçalho -->
     <header class="jumbotron">
         <h1 class="display-4" id="welcomeMessage">Bem-vindo <span id="username"></span> à Loja Ponto de Moda</h1>
-        <p class="lead" > Encontre os melhores produtos com os
-            melhores preços.</p>
+        <p class="subtexto">Encontre os melhores produtos com os melhores preços.</p>
     </header>
 
     <!-- Carrossel de Promoções -->
     <div id="carouselExample" class="carousel slide">
         <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../img/b1.png" class="d-block w-100" alt="Começou">
-          </div>
-          <div class="carousel-item">
-            <img src="../img/b2.png" class="d-block w-100" alt="70% Off">
-          </div>
-          <div class="carousel-item">
-            <img src="../img/b3.png" class="d-block w-100" alt="10x sem juros">
-          </div>
+            <div class="carousel-item active">
+                <img src="../img/b1.png" class="d-block w-100" alt="Começou">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/b2.png" class="d-block w-100" alt="70% Off">
+            </div>
+            <div class="carousel-item">
+                <img src="../img/b3.png" class="d-block w-100" alt="10x sem juros">
+            </div>
         </div>
         <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
         </button>
         <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Próximo</span>
         </button>
-      </div>
-
-    <div class="produtos-container">
-        <div class="card-deck" id="listaProdutos"></div>
     </div>
 
+    <div class="produtos-container">
+        <h3 class="produtos-grupo">PRODUTOS</h3>
+        <div class="card-deck" id="listaProdutos"></div>
+    </div>
+    <footer>
+        <div class="footer-container">
+            <p>Nossas redes sociais: </p>
+            <a href="https://www.instagram.com" target="_blank"> <img class="insta" src="../img/icon/instagram.svg" alt="Instagram"></a>
+            <a href="https://www.facebook.com" target="_blank"> <img class="face" src="../img/icon/facebook.svg" alt="Facebook"></a>
+        </div>
+    </footer>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
         crossorigin="anonymous"></script>
+        <script src="../js/carrinho.js"></script>
     <script src="../js/produto.js"></script>
 </body>
 

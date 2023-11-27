@@ -1,71 +1,38 @@
-// Função para carregar os favoritos na página
-function loadFavorites() {
+function carregaFavoritos() {
     const favContainer = document.getElementById('fav');
-    let favorites = JSON.parse(localStorage.getItem('fav')) || [];
+    let favoritos = JSON.parse(localStorage.getItem('fav')) || [];
 
-    // Limpar o conteúdo atual dos favoritos
     favContainer.innerHTML = '';
 
-    // Adicionar produtos dos favoritos aos favoritos HTML
-    favorites.forEach(function (item) {
+    favoritos.forEach(function (item) {
         const favItem = document.createElement('li');
-        favItem.innerHTML = `${item.name}`;
-
-        // Adicionar botão de remoção
-        const removeButton = document.createElement('button');
-        removeButton.innerHTML = 'Remover dos Favoritos';
-        removeButton.classList.add('btn', 'btn-danger');
-        removeButton.onclick = function () {
-            removeFromFavorites(item.id);
+     favItem.innerHTML = `${item.nome} `;
+        const botaoRemover = document.createElement('button');
+        botaoRemover.innerHTML = 'Remover dos Favoritos';
+        botaoRemover.classList.add('btn', 'btn-danger');
+        botaoRemover.onclick = function () {
+            removerFavoritos(item.id);
         };
 
-        favItem.appendChild(removeButton);
+        favItem.appendChild(botaoRemover);
         favContainer.appendChild(favItem);
     });
 }
 
-// Função para adicionar um item aos favoritos
-function addFav(productId, productName) {
-    let favorites = JSON.parse(localStorage.getItem('fav')) || [];
+function removerFavoritos(idProduto) {
+    let favoritos = JSON.parse(localStorage.getItem('fav')) || [];
 
-    // Verificar se o produto já está nos favoritos
-    const existingFavorite = favorites.find(item => item.id === productId);
+    favoritos = favoritos.filter(item => item.id !== idProduto);
 
-    if (!existingFavorite) {
-        // Adicionar o produto aos favoritos
-        favorites.push({ id: productId, name: productName });
-
-        // Salvar os favoritos de volta no localStorage
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-
-        // Recarregar os favoritos na página
-        loadFavorites();
-    }
+    localStorage.setItem('fav', JSON.stringify(favoritos));
+    carregaFavoritos();
 }
 
-// Função para remover um item dos favoritos
-function removeFromFavorites(productId) {
-    let favorites = JSON.parse(localStorage.getItem('fav')) || [];
-
-    // Filtrar o item a ser removido dos favoritos
-    favorites = favorites.filter(item => item.id !== productId);
-
-    // Salvar os favoritos de volta no localStorage
-    localStorage.setItem('fav', JSON.stringify(favorites));
-
-    // Recarregar os favoritos na página
-    loadFavorites();
-}
-
-// Outras funções relacionadas aos favoritos podem ser adicionadas conforme necessário
-
-// Exemplo: Função para limpar completamente os favoritos
-function clearFavorites() {
-    localStorage.removeItem('favorites');
-    loadFavorites();
-}
-
-// Carregar os favoritos ao carregar a página
 document.addEventListener('DOMContentLoaded', function () {
-    loadFavorites();
+    carregaFavoritos();
 });
+
+function logout() {
+    localStorage.removeItem('nomeUsuario');
+    window.location.href = '../index.html';
+}
