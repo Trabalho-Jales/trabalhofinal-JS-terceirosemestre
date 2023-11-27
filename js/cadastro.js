@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function () {
-    document.getElementById('loginForm').addEventListener('submit', function(event) {
+    document.getElementById('cadastroForm').addEventListener('submit', function(event) {
       event.preventDefault();
       const nomeUsuario = document.getElementById('username').value;
       const senha = document.getElementById('password').value;
