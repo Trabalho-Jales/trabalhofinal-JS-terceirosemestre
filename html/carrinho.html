@@ -49,23 +49,22 @@
                 <div class="card-deck" id="listaProdutos"></div>
                 <ul id="carrinho"></ul>
             </div>
-
+    
             <!-- Carrinho -->
-            <div class="col-lg-6 carrinho-container">
-
+            <div class="col-lg-6 checkout-container">
                 <!-- Total do Carrinho -->
                 <div id="total-container">
                     <p>Total do Carrinho: R$<span id="total"></span></p>
                 </div>
-
+    
                 <!-- Formulário de Checkout -->
                 <div id="checkout-form">
                     <label for="cep">CEP:</label>
                     <input type="number" id="cep" name="cep" placeholder="Digite o CEP"><br>
-            
+    
                     <label for="cupom">Cupom:</label>
                     <input type="text" id="cupom" name="cupom" placeholder="Digite o cupom"><br>
-            
+    
                     <button onclick="finalizarCompra()">Finalizar Compra</button>
                 </div>
             </div>
