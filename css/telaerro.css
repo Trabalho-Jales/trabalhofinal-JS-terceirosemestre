@@ -1,0 +1,33 @@
+* {
+    font-family: 'Lato', sans-serif;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.erro {
+    color: red;
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.texto-botaovolta {
+    text-align: center;
+}
+
+.texto-botaovolta p {
+    margin-bottom: 20px;
+}
+
+.btn {
+    background-color: #007bff;
+    color: #fff;
+}
