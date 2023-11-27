@@ -1,6 +1,5 @@
 * {
     font-family: 'Lato', sans-serif;
-    
 }
 
 body {
@@ -14,12 +13,12 @@ body {
 .navbar {
     background-color: rgba(222, 247, 82, 0.105);
 }
+
 .navbar-brand img {
     width: 80px;
     height: 80px;
     margin: 0 auto;
 }
-
 
 #carrinhoIcon {
     width: 30px;
@@ -27,11 +26,13 @@ body {
     display: block;
     margin: 0 auto; 
 }
+
 .cart-container p {
     margin: 0;
     margin-top: -10px;
     text-align: center;
 }
+
 .cart-container {
     width: 60px;
     margin-right: 20px;
@@ -47,61 +48,21 @@ body {
     width: 100px;
     margin-right: 45px;
 }
-.produtos-container {
-    text-align: center;
-    margin-top: 50px;
-}
 
-.produtos-grupo {
-    font-size: 30px;
-    color: #000000;
-    text-shadow: 0 0 10px rgba(35, 33, 150, 0.384);
-}
-ul li{
-    list-style: none;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-}
-.btn{
-    margin-top: 12px;
-}
-li{ 
-    margin-top: 12px;
-}
-.row {
-    margin-right: -12px;
-    margin-left: -15px;
-}
-
-.col-lg-6 {
-    flex: 0 0 50%;
-    max-width: 50%;
-
-}
-#carrinho-container {
+.produtos-favoritos li {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
-    padding: 20px;
-    background-color: #ffffff;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    margin-top: 20px;
-}
-
-#total-container {
-    font-size: 18px;
-    margin-bottom: 10px;
-}
-
-.carrinho-container{
-    position: relative;
+    justify-content: space-between;
     align-items: center;
-    justify-content: center;
-    height: auto;
-    margin-top: 100px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #fff;
+    border-radius: 8px;
 }
+
+.btn-danger {
+    margin-left: 10px;
+}
+
 footer {
     width: 100%;
     text-align: center;
@@ -110,13 +71,14 @@ footer {
     position: fixed;
     bottom: 0;
 }
-  
+
 .footer-container p {
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     align-items: center;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }
+
 .container-fluid {
     flex: 1;
 }
@@ -126,5 +88,5 @@ footer {
     margin-right: 10px;
     width: 30px;
     height: 30px;
-    margin-bottom: 10px; 
+    margin-bottom: 10px;
 }

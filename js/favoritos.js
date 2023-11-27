@@ -6,15 +6,11 @@ function carregaFavoritos() {
 
     favoritos.forEach(function (item) {
         const favItem = document.createElement('li');
-     favItem.innerHTML = `${item.nome} `;
-        const botaoRemover = document.createElement('button');
-        botaoRemover.innerHTML = 'Remover dos Favoritos';
-        botaoRemover.classList.add('btn', 'btn-danger');
-        botaoRemover.onclick = function () {
-            removerFavoritos(item.id);
-        };
-
-        favItem.appendChild(botaoRemover);
+        favItem.innerHTML = `
+            <span>${item.nome}</span>
+            <button class="btn btn-danger" onclick="removerFavoritos(${item.id})">Remover dos Favoritos</button>
+        `;
+        
         favContainer.appendChild(favItem);
     });
 }

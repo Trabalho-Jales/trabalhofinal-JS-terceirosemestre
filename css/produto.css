@@ -88,13 +88,19 @@ body {
     text-align: center;
 }
 
-.cart-container,
-.favorites-container {
+.cart-container {
     width: 60px;
     margin-right: 15px;
     align-items: center;
     justify-content: center;
     margin-top: 25px;
+}
+.favorites-container {
+    width: 60px;
+    margin-right: 15px;
+    align-items: center;
+    justify-content: center;
+    margin-top:10px;
 }
 
 .subtexto {
@@ -148,3 +154,118 @@ footer {
     height: 30px;
     margin-bottom: 10px; 
   }
+  @media(max-width: 1024px) {
+     .produto {
+        width: 45%;
+    }
+
+    .produtos-grupo {
+        font-size: 30px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+  }
+  @media (max-width: 768px) {
+    .produto {
+        width: 45%;
+    }
+
+    .produtos-grupo {
+        font-size: 30px;
+    }
+
+    .card-title {
+        font-size: 16px;
+    }
+
+    .card-text {
+        font-size: 14px;
+    }
+    .navbar {
+        padding: 10px; 
+        background-color: rgba(222, 247, 82, 0.2);
+    }
+
+
+
+    .navbar-nav {
+        width: 100%; 
+        justify-content: space-around; 
+    }
+
+    .navbar-collapse {
+        margin-top: 10px;
+    }
+    .cart-container{
+        margin-right: -60px;
+    }
+    .favorites-container{
+        margin-left: -15px;
+    }
+    .btn-sair{
+        position: relative;
+        margin-right: 55px;
+    }
+    
+    #listaProdutos{
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .produto {
+        width: 100%;
+        margin: 2% 0;
+    }
+
+    .produtos-grupo {
+        font-size: 24px;
+    }
+
+    .card-title {
+        font-size: 14px;
+    }
+
+    .card-text {
+        font-size: 12px;
+    }
+    .cart-container{
+        margin-left: 3px;
+        margin-right: 3px;
+    }
+    .favorites-container{
+        margin-left: 3px;
+    }
+    .btn-sair{
+        position: relative;
+        margin-right: 5px;
+        width: 52px;
+    }
+    .navbar-toggler{
+        margin-left: -20px;
+    }
+}
+@media(max-width: 425px){
+    #welcomeMessage{
+     font-size: 25px;   
+    }
+    .card-title{
+        font-size: 18px;
+    }
+    .card-text{
+        font-size: 18px;
+    }
+    .card{
+        margin-right: auto;
+        margin-left: auto;
+        width: 75%;
+        justify-content: center;
+    }
+}
