@@ -6,7 +6,7 @@ function removerProduto(idProduto) {
     carregarCarrinho();
 }
 
-// Função para remover se a quantidade for zero na quantidade
+// Função para remover se a quantidade de produto for colocada como zero
 function removerZero(idProduto, quantidadeAtual) {
     if (quantidadeAtual > 1) {
         atualizarQuantidade(idProduto, quantidadeAtual - 1);
@@ -88,12 +88,12 @@ function atualizarQuantidade(idProduto, novaQuantidade) {
 document.addEventListener('DOMContentLoaded', function () {
     carregarCarrinho();
 });
-//funçao alerta finaliza compra
+//funçao alerta de finalização de compra
 function finalizarCompra() {
     alert("Obrigado por comprar conosco! Você será redirecionado após clicar em ok");
     window.location.href = './produtos.html';
 }
-// Função para fazer logout e voltar para a página de login
+// Função para desconectar e voltar a tela de login
 function logout() {
     // Limpar o localStorage
     localStorage.removeItem('nomeUsuario');

@@ -63,7 +63,6 @@ function comprarProduto(id, nome, preco) {
 }
 function carregaFavoritos() {
     const favContainer = document.getElementById('fav');
-    // Verificar se o elemento foi encontrado no DOM
     if (favContainer) {
         let favoritos = JSON.parse(localStorage.getItem('fav')) || [];
         favContainer.innerHTML = '';

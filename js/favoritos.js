@@ -22,7 +22,10 @@ function removerFavoritos(idProduto) {
 document.addEventListener('DOMContentLoaded', function () {
     carregaFavoritos();
 });
+// Função para desconectar e voltar a tela de login
 function logout() {
+      // Limpar o localStorage
     localStorage.removeItem('nomeUsuario');
+      // Redirecionar para a página de login
     window.location.href = '../index.html';
 }
