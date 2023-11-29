@@ -36,10 +36,17 @@ body {
     font-size: 20px;
     opacity: 40%;
 }
-
 .card-text {
+    margin-top: -15px;
     text-align: center;
     opacity: 70%;
+}
+.card-desconto{
+    margin-top: 10px;
+    opacity: 40%;
+    text-align: center; 
+    color: red;
+
 }
 
 .btn {
